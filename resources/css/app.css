@@ -1,0 +1,39 @@
+body {
+    background-color: #f5f3e6;
+}
+.square {
+    color: white;
+    height: 550px;
+    padding: 10px;
+    margin: 12px 0;
+}
+
+.task-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-list > li {
+    border: 1px solid white;
+    padding: 10px;
+    margin: 7px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.square.do {
+    background-color: #6aac8c;
+}
+
+.square.schedule {
+    background-color: #e6886b;
+}
+
+.square.delegate {
+    background-color: #5487a6;
+}
+
+.square.delete {
+    background-color: #f2696c;
+}
+
