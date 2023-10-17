@@ -11,30 +11,28 @@
 
   </div>
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6 col-md-3">
       @include('partials.square', [
         'category' => 'do',
         'tasks' => $tasks->where('category', 'do'),
         'otherCategories' => ['schedule', 'delegate', 'delete'],
         ])
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-6 col-md-3">
       @include('partials.square', [
         'category' => 'schedule',
         'tasks' => $tasks->where('category', 'schedule'),
         'otherCategories' => ['do', 'delegate', 'delete'],
         ])
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6 col-md-3">
       @include('partials.square', [
         'category' => 'delegate',
         'tasks' => $tasks->where('category', 'delegate'),
         'otherCategories' => ['do', 'schedule', 'delete'],
         ])
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-6 col-md-3">
       @include('partials.square', [
         'category' => 'delete',
         'tasks' => $tasks->where('category', 'delete'),
