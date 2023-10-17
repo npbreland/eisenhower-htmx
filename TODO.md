@@ -1,0 +1,5 @@
+- [ ] fix breakpoints
+- [ ] import htmx rather than cdn
+- [ ] import bootstrap js rather than cdn
+- [ ] create "completed" view
+- [ ] create "schedule" view
