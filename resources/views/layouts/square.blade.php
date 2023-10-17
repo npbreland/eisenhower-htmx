@@ -1,3 +1,3 @@
 <div class="square @yield('category')">
-    @yield('tasks')
+  @yield('tasks')
 </div>
