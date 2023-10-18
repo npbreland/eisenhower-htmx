@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Eisenhower HTMX</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
-    @vite([
-      'resources/scss/app.scss',
-      'resources/css/app.css',
-      'resources/js/app.js'
-    ])
-  </head>
-  <body>
-    @include('partials.matrix', compact('tasks'))
-    <script>
-      document.body.addEventListener('htmx:configRequest', (event) => {
-        event.detail.headers['X-CSRF-Token'] = '{{ csrf_token() }}';
-      })
-    </script>
-  </body>
-</html>
+@extends('layouts.app')
+@section('content')
+  {{-- {{ dd(session()->all()) }} --}}
+  @if (auth()->check())
+    <a href="/logout">Log out</a>
+  @else
+    <a href="/login">Log in</a>
+    <a href="/register">Register</a>
+  @endif
+  @include('partials.matrix', compact('tasks'))
+@endsection

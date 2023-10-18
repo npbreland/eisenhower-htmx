@@ -12,7 +12,8 @@
       </button>
       <button
           class="btn btn-danger btn-sm"
-          hx-delete="/tasks/{{ $task->id }}"
+          hx-post="/tasks/{{ $task->id }}"
+          hx-vals='{"_method": "DELETE"}'
           hx-confirm="Are you sure you want to delete task '{{ $task->title }}'?"
           hx-target="body">
           <i class="bi bi-trash"></i>
@@ -24,7 +25,8 @@
       @foreach($otherCategories as $category)
         <button
             class="btn btn-light btn-sm"
-            hx-patch="/tasks/{{ $task->id }}"
+            hx-post="/tasks/{{ $task->id }}"
+            hx-vals='{"_method": "PATCH"}'
             name="category"
             value="{{ $category }}"
             hx-target="body">

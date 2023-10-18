@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.2",
-    "htmx": "^0.0.2",
+    "bootstrap-icons": "^1.11.1",
+    "htmx.org": "^1.9.6",
     "sass": "^1.69.3"
   }
 }
