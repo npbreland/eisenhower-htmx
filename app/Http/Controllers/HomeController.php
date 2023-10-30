@@ -9,7 +9,9 @@ class HomeController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $tasks = Task::all();
+        $tasks = Task::where('user_id', auth()->id())
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         if ($request->has('Hx-Request')) {
             return view('partials.matrix', compact('tasks'));

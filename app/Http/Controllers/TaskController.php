@@ -19,6 +19,7 @@ class TaskController extends Controller
         $task = new Task;
         $task->title = $request->title;
         $task->category = 'do';
+        $task->user_id = auth()->user()->id;
         $task->save();
         return redirect('/', 303);
     }
@@ -28,11 +29,14 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
+        if ($task->user_id !== auth()->user()->id) {
+            return redirect('/', 403);
+        }
+
         $request->validate([
             'category' => 'required',
         ]);
 
-        $task = Task::findOrFail($task->id);
         $task->category = $request->category;
         $task->save();
 
@@ -44,7 +48,9 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        $task = Task::findOrFail($task->id);
+        if ($task->user_id !== auth()->user()->id) {
+            return redirect('/', 403);
+        }
         $task->delete();
         return redirect('/', 303);
     }

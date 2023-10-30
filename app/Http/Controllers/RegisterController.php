@@ -17,7 +17,7 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-        // TODO: Validate for secure passwor
+        // TODO: Validate for secure password
         try {
 
             $request->validate([
@@ -35,8 +35,6 @@ class RegisterController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        $request->session()->regenerate();
-
-        return redirect('/');
+        return redirect('/login');
     }
 }
